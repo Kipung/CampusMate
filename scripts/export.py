@@ -3,7 +3,7 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from backend.models import User, StudyGroup
+from models import User, StudyGroup
 
 
 def export_data():

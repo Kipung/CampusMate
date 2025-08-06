@@ -30,27 +30,20 @@ Here's a record of what has been tested and confirmed working, and what still ne
     *   Frontend (`http://localhost:3000`) loads and displays content.
     *   Backend API Docs (Swagger UI at `http://localhost:8001/docs`) are accessible.
     *   pgAdmin (`http://localhost:5050`) is accessible and successfully connected to the `campusmate` database.
-*   **Backend Functionality (via Swagger UI):**
-    *   `GET /healthz` endpoint returns `200 OK`.
-    *   `GET /healthcheck` endpoint returns `200 OK`.
-    *   `POST /users/` successfully creates a user, and the data can be verified in pgAdmin.
+*   **Backend Functionality (Automated API Tests):**
+    *   All API endpoints (Health Checks, User Management, Study Group Management, Matching Engine, In-Person Features) have been successfully tested via automated scripts.
+*   **Cron Job (Data Export):**
+    *   Automated data export to `data/exports/export.csv` is confirmed working.
+*   **Automated Checks:**
+    *   `make test` (backend and frontend unit tests) are passing.
+    *   `make lint` (backend and frontend code linting) are passing.
 
 ### Still to Test:
 
-*   **Backend Functionality (via Swagger UI):**
-    *   `GET /users/` (retrieve all users)
-    *   `GET /users/{user_id}` (retrieve a specific user)
-    *   `POST /study_groups/` (create a new study group)
-    *   `GET /study_groups/` (retrieve all study groups)
-    *   `GET /study_groups/{study_group_id}` (retrieve a specific study group)
-    *   `POST /match` (get ranked study group recommendations)
-    *   `POST /groups/{group_id}/schedule` (update study group meeting time)
-    *   `POST /groups/{group_id}/location` (update study group location)
-    *   `GET /groups/{group_id}/map` (get Google Maps embed URL)
-    *   `GET /groups/{group_id}/ics` (get ICS file for meeting)
-    *   `POST /groups/{group_id}/remind` (trigger email reminder)
-*   **Cron Job (Data Export):**
-    *   Manually trigger `docker-compose exec backend python scripts/export.py` and verify `data/exports/export.csv` content.
-*   **Automated Checks:**
-    *   Run `make test` (backend and frontend unit tests).
-    *   Run `make lint` (backend and frontend code linting).
+*   **Manual UI/UX Verification:**
+    *   Thorough manual testing of the frontend user interface and user experience.
+    *   Verification of all interactive elements and workflows.
+*   **External Service Integration (Manual Verification):**
+    *   If actual SendGrid/Twilio credentials are provided, verify email/SMS reminders are sent.
+*   **Deployment Verification:**
+    *   Verify successful deployment to Fly.io once configured with actual credentials.

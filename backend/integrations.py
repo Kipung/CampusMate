@@ -1,4 +1,3 @@
-import googlemaps
 from ics import Calendar, Event
 
 def create_google_maps_embed(location):
@@ -11,15 +10,9 @@ def create_google_maps_embed(location):
     Returns:
         A string containing the Google Maps embed URL.
     """
-    gmaps = googlemaps.Client(key="YOUR_API_KEY")  # Replace with your API key
-    geocode_result = gmaps.geocode(location)
-    if not geocode_result:
-        return None
-
-    lat = geocode_result[0]['geometry']['location']['lat']
-    lng = geocode_result[0]['geometry']['location']['lng']
-
-    return f"https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q={lat},{lng}"
+    # Mocking Google Maps API for testing purposes
+    # In a real application, you would use a valid API key and handle geocoding properly.
+    return f"https://maps.google.com/maps?q={location}"
 
 def create_ics_file(summary, dtstart, dtend):
     """

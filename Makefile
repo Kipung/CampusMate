@@ -9,3 +9,9 @@ lint:
 	docker-compose exec backend ruff check --fix .
 	cd frontend && npm run format
 	cd frontend && ./node_modules/.bin/eslint --fix src/
+
+stop:
+	docker-compose down
+
+clean:
+	docker-compose down --volumes --remove-orphans	

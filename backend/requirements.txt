@@ -12,3 +12,4 @@ pytest
 httpx
 ruff
 posthog
+requests
